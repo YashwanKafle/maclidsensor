@@ -10,11 +10,20 @@ from maclidsensor.exceptions import MacLidAngleSensorNotFoundError
 
 
 class LidSensor:
+    """
+    MacBook lid angle sensor interface.
+
+    Provides access to the MacBook's built-in lid angle sensor through
+    the HID interface.
+    """
+
     def __init__(self):
+        """Initialize the lid sensor."""
         self.device = None
         self._connect()
 
     def _connect(self):
+        """Find and connect to the lid angle sensor."""
         devices = hid.enumerate(VENDOR_ID, PRODUCT_ID)
         for dev_info in devices:
             if (
@@ -42,6 +51,11 @@ class LidSensor:
         )
 
     def read(self):
+        """Read the current lid angle.
+
+        Returns:
+            Angle in degrees (0-180), or None if reading fails
+        """
         if not self.device:
             raise MacLidAngleSensorNotFoundError(
                 "MacBook lid angle sensor not found."
