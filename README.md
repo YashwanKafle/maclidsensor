@@ -46,6 +46,12 @@ This package was made possible by the reverse engineering work done by Sam Henri
 
 - [Another python library that has more features](https://github.com/tcsenpai/pybooklid)
 
+## License
+
+This project is licensed MIT LICENSE.
+
+See the [LICENSE file](./LICENSE) for full details.
+
 
 ## Contributing
 
